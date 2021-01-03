@@ -9,6 +9,7 @@ public class LateralMenuController : MonoBehaviour
 
     public bool openMenu = false, showMenu = true;
     public float itemContainerMargin = 10.0f;
+    public float animationVelocity = 0.3f;
 
     private Image backgroundImageMenu;
     private GameObject btnUserProfile;
@@ -16,6 +17,8 @@ public class LateralMenuController : MonoBehaviour
     private Image[] bgItems;
     private float rectTransformXPosition;
     private Vector2 sizeDeltaLeftMenu;
+
+    private FooterBarController footerBarController;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,8 @@ public class LateralMenuController : MonoBehaviour
         sizeDeltaLeftMenu = new Vector2(GameObject.Find("Canvas").gameObject.GetComponent<RectTransform>().rect.width, GameObject.Find("Canvas").gameObject.GetComponent<RectTransform>().rect.height);
 
         this.GetComponent<RectTransform>().sizeDelta = new Vector2(sizeDeltaLeftMenu.x - 20.0f, sizeDeltaLeftMenu.y - 20.0f);
+
+        footerBarController = GameObject.Find("Canvas").gameObject.transform.Find("ControlsContainer").gameObject.transform.Find("FooterBar").gameObject.GetComponent<FooterBarController>();
 
         Init();
     }
@@ -68,7 +73,7 @@ public class LateralMenuController : MonoBehaviour
     {
         if (showMenu)
         {
-            this.GetComponent<RectTransform>().DOAnchorPosX(-120.0f, 0.3f).OnComplete(()=>{
+            this.GetComponent<RectTransform>().DOAnchorPosX(-120.0f, animationVelocity).OnComplete(()=>{
                 this.gameObject.SetActive(false);
             });
 
@@ -78,7 +83,7 @@ public class LateralMenuController : MonoBehaviour
         else
         {
             this.gameObject.SetActive(true);
-            this.GetComponent<RectTransform>().DOAnchorPosX(10.0f, 0.3f);
+            this.GetComponent<RectTransform>().DOAnchorPosX(10.0f, animationVelocity);
             showMenu = true;
         }
         
@@ -88,12 +93,14 @@ public class LateralMenuController : MonoBehaviour
     {
         if (openMenu)
         {
-            backgroundImageMenu.DOFade(1.0f, 0.3f);
+            footerBarController.HideShowFooter();
 
-            this.GetComponent<RectTransform>().DOSizeDelta(new Vector2(sizeDeltaLeftMenu.x - 20.0f, sizeDeltaLeftMenu.y - 20.0f), 0.3f);
+            backgroundImageMenu.DOFade(1.0f, animationVelocity);
+
+            this.GetComponent<RectTransform>().DOSizeDelta(new Vector2(sizeDeltaLeftMenu.x - 20.0f, sizeDeltaLeftMenu.y - 20.0f), animationVelocity);
             this.GetComponent<RectTransform>().DOAnchorPosX(10.0f, 0.3f).OnComplete(() =>
             {
-                rectTransformBtnCloseMenu.DOAnchorPosX(35.0f, 0.3f);
+                rectTransformBtnCloseMenu.DOAnchorPosX(35.0f, animationVelocity);
             });
 
             foreach (Transform c in rectTransformContainer.gameObject.transform)
@@ -109,11 +116,13 @@ public class LateralMenuController : MonoBehaviour
         }
         else
         {
+            footerBarController.HideShowFooter();
+
             backgroundImageMenu.DOFade(0.0f, 0.3f);
 
-            this.GetComponent<RectTransform>().DOSizeDelta(new Vector2(130.0f, 400), 0.3f);
-            this.GetComponent<RectTransform>().DOAnchorPos(new Vector2(0.0f, 0.0f), 0.3f);
-            rectTransformBtnCloseMenu.DOAnchorPosX(0.0f, 0.3f);
+            this.GetComponent<RectTransform>().DOSizeDelta(new Vector2(130.0f, 400), animationVelocity);
+            this.GetComponent<RectTransform>().DOAnchorPos(new Vector2(0.0f, 0.0f), animationVelocity);
+            rectTransformBtnCloseMenu.DOAnchorPosX(0.0f, animationVelocity);
 
             foreach (Transform c in rectTransformContainer.gameObject.transform)
             {

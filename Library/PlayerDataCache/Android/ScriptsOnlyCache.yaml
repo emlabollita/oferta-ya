@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - FooterBarController
     - LateralMenuController
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
@@ -62,6 +63,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13876}
     - Class: 114
       Script: {instanceID: 13936}
+    - Class: 114
+      Script: {instanceID: 20220}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -515,7 +518,7 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: 1b78d5ff5d6e05da638f7aa048d22b96
+      Hash: 5732cd640379635545f98aba02f037d4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LateralMenuController
@@ -525,6 +528,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: d309675f531edd167c0f57f4664ff4fb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FooterBarController
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
