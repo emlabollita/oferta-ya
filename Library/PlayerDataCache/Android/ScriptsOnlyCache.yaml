@@ -14,11 +14,16 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.AspectRatioFitter
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.Mask
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Text
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
@@ -44,27 +49,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11818}
     - Class: 114
-      Script: {instanceID: 12002}
+      Script: {instanceID: 12010}
     - Class: 114
-      Script: {instanceID: 12042}
+      Script: {instanceID: 12012}
     - Class: 114
-      Script: {instanceID: 12388}
+      Script: {instanceID: 12050}
     - Class: 114
-      Script: {instanceID: 12488}
+      Script: {instanceID: 12114}
     - Class: 114
-      Script: {instanceID: 12852}
+      Script: {instanceID: 12170}
     - Class: 114
-      Script: {instanceID: 12956}
+      Script: {instanceID: 12262}
     - Class: 114
-      Script: {instanceID: 13062}
+      Script: {instanceID: 12404}
     - Class: 114
-      Script: {instanceID: 13494}
+      Script: {instanceID: 12510}
     - Class: 114
-      Script: {instanceID: 13876}
+      Script: {instanceID: 12742}
     - Class: 114
-      Script: {instanceID: 13936}
+      Script: {instanceID: 12884}
     - Class: 114
-      Script: {instanceID: 20220}
+      Script: {instanceID: 12990}
+    - Class: 114
+      Script: {instanceID: 13098}
+    - Class: 114
+      Script: {instanceID: 13238}
+    - Class: 114
+      Script: {instanceID: 13546}
+    - Class: 114
+      Script: {instanceID: 13938}
+    - Class: 114
+      Script: {instanceID: 14000}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -174,6 +189,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: d309675f531edd167c0f57f4664ff4fb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FooterBarController
   - hash:
       serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
@@ -530,10 +551,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: d309675f531edd167c0f57f4664ff4fb
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: FooterBarController
+    className: LoadItemController
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
