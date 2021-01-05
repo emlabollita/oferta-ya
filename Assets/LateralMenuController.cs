@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using static LoadItemController;
 
 public class LateralMenuController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class LateralMenuController : MonoBehaviour
     private float rectTransformXPosition;
     private Vector2 sizeDeltaLeftMenu;
     private Button btnOpenLateralMenu;
+    private LoadItemController loadItemController;
 
     private FooterBarController footerBarController;
     // Start is called before the first frame update
@@ -37,13 +39,13 @@ public class LateralMenuController : MonoBehaviour
 
         btnOpenLateralMenu = this.transform.Find("Btn").gameObject.GetComponent<Button>();
 
+        loadItemController = GameObject.Find("Scripts").GetComponent<LoadItemController>();
+
         Init();
     }
 
     private void Init()
     {
-        
-
         Color colorBG = backgroundImageMenu.color;
         colorBG.a = 0.0f;
 
@@ -59,7 +61,14 @@ public class LateralMenuController : MonoBehaviour
         {
             c.Find("bg").gameObject.SetActive(false);
             c.Find("Title").gameObject.SetActive(false);
+
+            c.gameObject.GetComponent<Button>().onClick.AddListener(()=> {
+                loadItemController.SetCategoryId(c.gameObject.transform.GetSiblingIndex());
+            });
+            Debug.Log(c.gameObject.transform.GetSiblingIndex());
         }
+
+        
 
         rectTransformItemContainer.offsetMin = new Vector2(0.0f, rectTransformItemContainer.offsetMin.y);
         btnUserProfile.SetActive(false);
